@@ -1,0 +1,16 @@
+# Compiled files / Build folder
+/target/
+*.class
+
+# IDE files
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+
+# Sensitive Properties (Agar aap DB passwords hide rakhna chahte ho)
+# application-secret.properties

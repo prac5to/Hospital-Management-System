@@ -1,0 +1,132 @@
+2026-10-08T06:51:13.290Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-10-08T06:51:13.290Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: auto, input: {
+  "sessionId": "",
+  "projectPath": "/Users/prachinaidu/SpringBootProject/hopital",
+  "event": "planGenerationStarted",
+  "phase": "plan",
+  "status": "succeeded"
+}}).
+2026-10-08T06:51:13.290Z [INFO] [Tool.invoke] do invoke.
+2026-10-08T06:51:13.291Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planGenerationStarted' reported!\nSession ID: 20261008065113,\nSession Dir: /Users/prachinaidu/SpringBootProject/hopital/.github/modernize/java-upgrade/20261008065113"
+}}).
+2026-10-08T06:51:13.291Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-10-08T06:51:23.081Z [INFO] ---------------------prepare appmod-list-jdks----------------------
+2026-10-08T06:51:23.082Z [INFO] [Tool.prepareInvocation]({name: appmod-list-jdks, input: {
+  "sessionId": "20261008065113"
+}}).
+2026-10-08T06:51:23.082Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-10-08T06:51:23.082Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "List jdks"
+}}).
+2026-10-08T06:51:23.082Z [INFO] ----------------------prepared appmod-list-jdks----------------------
+2026-10-08T06:51:23.096Z [INFO] ----------------------invoke appmod-list-jdks----------------------
+2026-10-08T06:51:23.096Z [INFO] [Tool.invoke]({name: appmod-list-jdks, modelId: auto, input: {
+  "sessionId": "20261008065113"
+}}).
+2026-10-08T06:51:23.096Z [INFO] [Tool.invoke] do invoke.
+2026-10-08T06:51:23.124Z [INFO] [Tool.invoke]({result: {
+  "message": "We found following jdks in your system:\n\n1. Java 25\n   📁 Path: /Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/bin\n   🏷️ Source: PATH,JAVA_HOME\n\n2. Java 27\n   📁 Path: /opt/homebrew/Cellar/openjdk/27/libexec/openjdk.jdk/Contents/Home/bin\n   🏷️ Source: others\n\nTotal: 2 JDK installation(s) found"
+}}).
+2026-10-08T06:51:23.124Z [INFO] ----------------------invoked appmod-list-jdks----------------------
+2026-10-08T06:51:23.133Z [INFO] ---------------------prepare appmod-list-mavens----------------------
+2026-10-08T06:51:23.133Z [INFO] [Tool.prepareInvocation]({name: appmod-list-mavens, input: {
+  "sessionId": "20261008065113"
+}}).
+2026-10-08T06:51:23.133Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-10-08T06:51:23.133Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "List mavens"
+}}).
+2026-10-08T06:51:23.133Z [INFO] ----------------------prepared appmod-list-mavens----------------------
+2026-10-08T06:51:23.147Z [INFO] ----------------------invoke appmod-list-mavens----------------------
+2026-10-08T06:51:23.147Z [INFO] [Tool.invoke]({name: appmod-list-mavens, modelId: auto, input: {
+  "sessionId": "20261008065113"
+}}).
+2026-10-08T06:51:23.147Z [INFO] [Tool.invoke] do invoke.
+2026-10-08T06:51:23.151Z [INFO] [Tool.invoke]({result: {
+  "message": "We found following maven installations in your system:\n\n1. 📁 Path: /opt/homebrew/Cellar/maven/3.9.14/bin\n   🏷️ Source: Homebrew,PATH\n\nTotal: 1 Maven installation(s) found"
+}}).
+2026-10-08T06:51:23.151Z [INFO] ----------------------invoked appmod-list-mavens----------------------
+2026-10-08T06:51:57.278Z [INFO] ---------------------prepare appmod-confirm-upgrade-plan----------------------
+2026-10-08T06:51:57.278Z [INFO] [Tool.prepareInvocation]({name: appmod-confirm-upgrade-plan, input: {
+  "sessionId": "20261008065113",
+  "autoExecute": true
+}}).
+2026-10-08T06:51:57.278Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-10-08T06:51:57.278Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Auto-executing [upgrade plan](/Users/prachinaidu/SpringBootProject/hopital/.github/modernize/java-upgrade/20261008065113/plan.md)"
+}}).
+2026-10-08T06:51:57.279Z [INFO] ----------------------prepared appmod-confirm-upgrade-plan----------------------
+2026-10-08T06:51:57.291Z [INFO] ----------------------invoke appmod-confirm-upgrade-plan----------------------
+2026-10-08T06:51:57.291Z [INFO] [Tool.invoke]({name: appmod-confirm-upgrade-plan, modelId: auto, input: {
+  "sessionId": "20261008065113",
+  "autoExecute": true
+}}).
+2026-10-08T06:51:57.291Z [INFO] [Tool.invoke] do invoke.
+2026-10-08T06:51:57.291Z [INFO] Upgrade plan confirmed successfully.
+2026-10-08T06:51:57.291Z [INFO] [Tool.invoke]({result: {
+  "message": "Generated plan is reviewed and confirmed by the user! the upgrade process will start now."
+}}).
+2026-10-08T06:51:57.291Z [INFO] ----------------------invoked appmod-confirm-upgrade-plan----------------------
+2026-10-08T06:52:16.180Z [INFO] ---------------------prepare appmod-report-event----------------------
+2026-10-08T06:52:16.180Z [INFO] [Tool.prepareInvocation]({name: appmod-report-event, input: {
+  "sessionId": "20261008065113",
+  "projectPath": "/Users/prachinaidu/SpringBootProject/hopital",
+  "event": "environmentSetup",
+  "phase": "execute",
+  "status": "succeeded",
+  "details": {
+    "jdkPath": "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/bin",
+    "buildToolPath": "."
+  }
+}}).
+2026-10-08T06:52:16.180Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-10-08T06:52:16.180Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Report upgrade event"
+}}).
+2026-10-08T06:52:16.180Z [INFO] ----------------------prepared appmod-report-event----------------------
+2026-10-08T06:52:16.200Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-10-08T06:52:16.200Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: auto, input: {
+  "sessionId": "20261008065113",
+  "projectPath": "/Users/prachinaidu/SpringBootProject/hopital",
+  "event": "environmentSetup",
+  "phase": "execute",
+  "status": "succeeded",
+  "details": {
+    "jdkPath": "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/bin",
+    "buildToolPath": "."
+  }
+}}).
+2026-10-08T06:52:16.201Z [INFO] [Tool.invoke] do invoke.
+2026-10-08T06:52:16.201Z [INFO] Project /Users/prachinaidu/SpringBootProject/hopital is a maven project, try to get java version from pom.xml
+2026-10-08T06:52:16.202Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'environmentSetup' reported!\nSession ID: 20261008065113,\nSession Dir: /Users/prachinaidu/SpringBootProject/hopital/.github/modernize/java-upgrade/20261008065113"
+}}).
+2026-10-08T06:52:16.202Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-10-08T06:52:16.203Z [INFO] Project java version: 17
+2026-10-08T06:52:16.204Z [INFO] Maven project detected.
+2026-10-08T06:52:16.204Z [INFO] Build tool type: mvnw
+2026-10-08T06:52:16.204Z [INFO] JDK: {
+  "name": "java",
+  "path": "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/bin",
+  "version": "17"
+}
+2026-10-08T06:52:16.204Z [INFO] Build tool: {
+  "name": "mvnw",
+  "path": ".",
+  "version": ""
+}
+2026-10-08T06:52:16.204Z [INFO] Project config: {
+  "buildTool": {
+    "path": ".",
+    "name": "mvnw",
+    "version": ""
+  },
+  "jdk": {
+    "path": "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/bin",
+    "name": "java",
+    "version": "17"
+  },
+  "name": "hopital",
+  "dir": "/Users/prachinaidu/SpringBootProject/hopital"
+}
