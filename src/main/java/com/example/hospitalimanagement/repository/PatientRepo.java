@@ -19,6 +19,8 @@ public interface PatientRepo extends JpaRepository<Patient,Long>
     Page<Patient> findByIsActivetrue(Pageable pageable);
 //3.fetch a single active patient by ID
     Page<Patient> findByIdAndIsActiveTrue(Long id);
+    void findAllById(String string);
+    void findAllByName(String string);
 
 //4.Check if active patient exists with a given phone number
 //well i dont have a phone number column so we skip it

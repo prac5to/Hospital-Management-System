@@ -37,7 +37,7 @@ public void testPatientGetById()
 @Test
 public void testTransactionMethods()
 {
-pr.findByName("diya patel");
+pr.findAllByName("diya patel");
 }
 
 }
