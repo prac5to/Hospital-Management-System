@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.hospitalimanagement.dto.PaginatedResponseDto;
 import com.example.hospitalimanagement.dto.PatientResponseDto;
 import com.example.hospitalimanagement.entity.Patient;
 import com.example.hospitalimanagement.repository.PatientRepo;
@@ -23,12 +24,24 @@ private final PatientRepo pr;//dependancy injection
      * Retrieves a paginated list of patients converted to DTOs.
      * Matches the endpoint in PatientController.
      */
-public  List<PatientResponseDto> getAllPatients(Integer pageNumber,Integer pageSize)
+public PaginatedResponseDto<PatientResponseDto> getAllPatients(Integer pageNumber,Integer pageSize)
 {
-                Pageable p = PageRequest.of(pageNumber,pageSize);
-                Page<Patient> pp =pr.findAll(p);
+    Pageable p =PageRequest.of(pageNumber,pageSize);
+    Page<Patient> pp =pr.findByIsActivetrue(p);
 
-return pp.getContent().stream().map(this::mapToDto).toList();
+    //Converting entity to dto 
+    List<PatientResponseDto> dtoList = pp.getContent().stream().map(this::mapToDto).toList();
+    //populate custom PagenatedResponseDto
+    PaginatedResponseDto<PatientResponseDto> responseDto = new PaginatedResponseDto<>();
+    responseDto.setContent(dtoList);
+    responseDto.setPageNumber(pp.getNumber());
+    responseDto.setPageSize(pp.getSize());
+    responseDto.setTotalElements(pp.getTotalElements());
+    responseDto.setTotalPages(pp.getTotalPages());
+    responseDto.setLast(pp.isLast());
+
+    return responseDto;
+
 }
 /**
      * Demonstrates Hibernate First-Level (L1) Cache inside @Transactional.
