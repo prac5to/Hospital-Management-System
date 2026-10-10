@@ -1,11 +1,15 @@
 package com.example.hospitalimanagement.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.example.hospitalimanagement.dto.PaginatedResponseDto;
+import com.example.hospitalimanagement.dto.PatientRequestDto;
 import com.example.hospitalimanagement.dto.PatientResponseDto;
+import com.example.hospitalimanagement.entity.BloodGroup;
+import com.example.hospitalimanagement.entity.Insurance;
 import com.example.hospitalimanagement.entity.Patient;
 import com.example.hospitalimanagement.repository.PatientRepo;
 
@@ -70,20 +74,21 @@ public PatientResponseDto getPatientDtoById(Long id)
      * Create a new patient.
      */
     @Transactional
-    public PatientResponseDto createPatient(Patient p)
+    public PatientResponseDto createPatient(PatientRequestDto requestDto)
     {
-        Patient savedPatient = pr.save(p);
-        return mapToDto(savedPatient);
+        Patient patient = mapToEntity(requestDto);//converting dto to entity
+        Patient savedPatient = pr.save(patient);
+        return mapToDto(savedPatient);//returning dto
     }
 /**
      * Update an existing patient.
      */
 @Transactional
-public PatientResponseDto updatePatient(Long id,Patient updatedData)
+public PatientResponseDto updatePatient(Long id,PatientRequestDto updatedPatient)
 {
  Patient existingData = pr.findById(id).orElseThrow(() -> new RuntimeException("Id not found"));
 
- existingData.setName(updatedData.getName());
+ existingData.setName(updatedPatient.getName());
  Patient savedPatient = pr.save(existingData);
  return mapToDto(savedPatient);
 }
@@ -104,7 +109,8 @@ public PatientResponseDto deletePatient(Long id)
 }
 /* 
      * Helper method to map Patient Entity to PatientResponseDto.
-     */
+     *///mapToDto only goes one way (from Entity to DTO):
+     //Patient (Entity) mapToDto. ->PatientResponseDto (DTO)
 private PatientResponseDto mapToDto(Patient p)
 {
     if (p == null) 
@@ -117,4 +123,30 @@ private PatientResponseDto mapToDto(Patient p)
     // Map remaining fields according to your PatientResponseDto class
         return prdto;
 }
+//When saving a new patient, the data flows in the opposite direction: your controller receives input as a DTO, but your database repository only accepts an Entity:
+//PatientRequestDto (DTO) mapToEntity ->Patient (Entity) pr.save()Database
+private Patient mapToEntity(PatientRequestDto dto)
+{
+    if (dto == null)
+    {
+        return null;
+    }
+    Patient patient = new Patient();
+    patient.setName(dto.getName());
+    patient.setGender(dto.getGender());
+    patient.setEmail(dto.getEmail());
+if(dto.getBloodGroup()!= null)
+{
+    patient.setBloodGroup(BloodGroup.valueOf(dto.getBloodGroup().toUpperCase()));
+}
+if(dto.getInsurance() != null)
+{
+  Insurance insurance = new Insurance(); 
+  patient.setInsurance(insurance);
+}
+    return patient;
+}
+
+
+
 }
